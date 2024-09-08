@@ -29,9 +29,8 @@ const Hero = () => {
   };
 
   return (
-    <div>
+    <div className="hero-container">
       <form onSubmit={handleSubmit}>
-        <fieldset>
           <section>
             <input 
               id="userInput" 
@@ -41,17 +40,16 @@ const Hero = () => {
             />
             <button type="submit">Search</button>
           </section>
-          {error && <p>Error: {error.message}</p>}
+          {error && <p className="error">{console.log("Error: "+error.message)}</p>}
           {weatherData ? (
             <nav>
-            <h2>City: {weatherData.address}</h2>
-            <h4>Temperature: {weatherData.currentConditions.temp}°C</h4>
-            <h5>Conditions: {weatherData.currentConditions.conditions}</h5>
+              <h2>City: {weatherData.address}</h2>
+              <h4>Temperature: {weatherData.currentConditions.temp}°C</h4>
+              <h5>Conditions: {weatherData.currentConditions.conditions}</h5>
             </nav>
           ) : (
-            <p>Loading...</p>
+            <p className="loading">Loading...</p>
           )}
-        </fieldset>
       </form>
     </div>
   );
